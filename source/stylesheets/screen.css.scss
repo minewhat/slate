@@ -55,6 +55,9 @@ html, body {
   // This is the logo at the top of the ToC
   &>img {
     display: block;
+    width: 142px;
+    margin: auto;
+    padding-top: 15px;
   }
 
   &>.search {
