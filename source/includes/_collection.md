@@ -18,7 +18,7 @@ _mwapi.push(['inventory', product_id , sku , quantity ]);
 > REST:
 
 ```shell
-https://engage.minewhat.com/api/updateinv/?c=customer_id&pid=product_id&sku=sku&qty=quantity
+https://api.minewhat.com/v1/updateinv/?c=customer_id&pid=product_id&sku=sku&qty=quantity
 ```
 
 Send us inventory details for all the products. It will help us provide you with better analysis on what to keep on in your inventory so that you never run out of stock or pile it up.
@@ -50,7 +50,7 @@ _mwapi.push(['setUser', email_id]);
 > REST:
 
 ```shell
-https://engage.minewhat.com/api/updateCustomerInfo/?c=customer_id&uid=user_id&email=email_id
+https://api.minewhat.com/v1/updateCustomerInfo/?c=customer_id&uid=user_id&email=email_id
 ```
 
 Users can clear cache and cookies from browser. Help us associate logged in users with their multiple session online by sending user email when he signs in.
@@ -79,7 +79,7 @@ _mwapi.push(['orderStatus',email_id, order_id, order_status ]);
 > REST:
 
 ```shell
-https://engage.minewhat.com/api/updateOrderInfo/?c=customer_id&email=email_id&order=order_id&status=order_status
+https://api.minewhat.com/v1/updateOrderInfo/?c=customer_id&email=email_id&order=order_id&status=order_status
 ```
 
 Users might be visiting your website to check the order status. We can guide while they are at it. Send us order status details when a user lands on your page.
