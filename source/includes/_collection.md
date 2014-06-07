@@ -7,6 +7,8 @@
 
 ```javascript
 MWSDK.trackEvent('product', product_id, associated_ids);
+
+Example MWSDK.trackEvent('product', 'YZ1546', [{id: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]);
 ```
 
 > Script js:
@@ -14,6 +16,8 @@ MWSDK.trackEvent('product', product_id, associated_ids);
 ```javascript
 window._mwapi = window._mwapi || [];
 _mwapi.push(['trackEvent', 'product', product_id, associated_ids]);
+
+Example _mwapi.push(['trackEvent', 'product', 'YZ1546', [{id: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]]);
 ```
 
 Send us product view details. It will help us provide you with better analysis.
@@ -46,6 +50,8 @@ price | The price of product
 
 ```javascript
 MWSDK.trackEvent('addtocart', product_id, sku, parent_product_id, quantity, bundle);
+
+Example MWSDK.trackEvent('addtocart', 'YZ1546A', 'YZ1546ALRG', 'YZ1546', 2, [{id: 'AB1546A', sku: 'AB1546ASML', price: 159}, {id: 'D1546A', sku: 'D1546AML', price: 200}]);
 ```
 
 > Script js:
@@ -53,6 +59,8 @@ MWSDK.trackEvent('addtocart', product_id, sku, parent_product_id, quantity, bund
 ```javascript
 window._mwapi = window._mwapi || [];
 _mwapi.push(['trackEvent', 'addtocart', product_id, sku, parent_product_id, quantity, bundle]);
+
+Example _mwapi.push(['trackEvent', 'addtocart', 'YZ1546A', 'YZ1546ALRG', 'YZ1546', 2, [{id: 'AB1546A', sku: 'AB1546ASML', price: 159}, {id: 'D1546A', sku: 'D1546AML', price: 200}]]);
 ```
 
 Send us add to cart details. It will help us provide you with better analysis.
@@ -87,6 +95,8 @@ price | The price of product
 
 ```javascript
 MWSDK.trackEvent('bag', 'mwdirect', items);
+
+Example MWSDK.trackEvent('bag', 'mwdirect', [{_id: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parentId: 'YZ1546', bundle: [{id: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}]);
 ```
 
 > Script js:
@@ -94,6 +104,8 @@ MWSDK.trackEvent('bag', 'mwdirect', items);
 ```javascript
 window._mwapi = window._mwapi || [];
 _mwapi.push(['trackEvent', 'bag', 'mwdirect', items]);
+
+Example _mwapi.push(['trackEvent', 'bag', 'mwdirect', [{_id: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parentId: 'YZ1546', bundle: [{id: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}]]);
 ```
 
 Send us cart details. It will help us provide you with better analysis.
@@ -109,7 +121,7 @@ items | The products inside cart which you want us to track.
 
 Array of products in the cart
 
-Example: [{id: product_id, sku: sku, qty: quantity, price: price, ppid: parent_product_id, bundle: bundle}, ....]
+Example: [{_id: product_id, sku: sku, qty: quantity, price: price, parentId: parent_product_id, bundle: bundle}, ....]
 
 Parameter | Description
 --------- | -------------
@@ -127,6 +139,8 @@ bundle  | The array of items in bundle
 
 ```javascript
 MWSDK.trackEvent('buy', 'mwdirect', items);
+
+Example MWSDK.trackEvent('buy', 'mwdirect', [{_id: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parentId: 'YZ1546', bundle: [{id: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}]);
 ```
 
 > Script js:
@@ -134,6 +148,8 @@ MWSDK.trackEvent('buy', 'mwdirect', items);
 ```javascript
 window._mwapi = window._mwapi || [];
 _mwapi.push(['trackEvent', 'buy', 'mwdirect', items]);
+
+Example _mwapi.push(['trackEvent', 'bag', 'mwdirect', [{_id: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parentId: 'YZ1546', bundle: [{id: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}]]);
 ```
 
 Send us purchase details. It will help us provide you with better analysis.
@@ -149,7 +165,7 @@ items | The list of ordered products you want us to track.
 
 Array of products bought
 
-Example: [{id: product_id, sku: sku, qty: quantity, price: price, ppid: parent_product_id, bundle: bundle}, ....]
+Example: [{_id: product_id, sku: sku, qty: quantity, price: price, parentId: parent_product_id, bundle: bundle}, ....]
 
 Parameter | Description
 --------- | -------------
@@ -198,12 +214,16 @@ quantity | The quantity of items remaining in the stock
 
 ```javascript
 MWSDK.setuser(email_id);
+
+Example MWSDK.setuser('abc@gmail.com');
 ```
 > Script js:
 
 ```javascript
 window._mwapi = window._mwapi || [];
 _mwapi.push(['setUser', email_id]);
+
+Example _mwapi.push(['setUser', 'abc@gmail.com']);
 ```
 
 Users can clear cache and cookies from browser. Help us associate logged in users with their multiple session online by sending user email when he signs in.
@@ -221,12 +241,16 @@ email_id |  Email Id of the signed in customer
 
 ```javascript
 MWSDK.orderStatus(email_id, order_id, order_status);
+
+Example MWSDK.orderStatus('abc@gmail.com', 'fgrds354jd', 0);
 ```
 > Script js:
 
 ```javascript
 window._mwapi = window._mwapi || [];
-_mwapi.push(['orderStatus',email_id, order_id, order_status ]);
+_mwapi.push(['orderStatus', email_id, order_id, order_status ]);
+
+Example _mwapi.push(['orderStatus', 'abc@gmail.com', 'fgrds354jd', 0]);
 ```
 
 Users might be visiting your website to check the order status. We can guide while they are at it. Send us order status details when a user lands on your page.
