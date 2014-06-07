@@ -8,7 +8,6 @@ toc_footers:
 
 includes:
   - collection
-  - automation
 
 search: true
 ---
