@@ -1,23 +1,22 @@
 # Collection
 
-
 ## Track Product View Event
 
 > SDK js:
 
 ```javascript
-MWSDK.trackEvent('product', product_id, associated_ids);
+MWSDK.trackEvent('product', pid, associated_ids);
 
-Example MWSDK.trackEvent('product', 'YZ1546', [{id: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]);
+Example MWSDK.trackEvent('product', 'YZ1546', [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]);
 ```
 
 > Script js:
 
 ```javascript
 window._mwapi = window._mwapi || [];
-_mwapi.push(['trackEvent', 'product', product_id, associated_ids]);
+_mwapi.push(['trackEvent', 'product', pid, associated_ids]);
 
-Example _mwapi.push(['trackEvent', 'product', 'YZ1546', [{id: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]]);
+Example _mwapi.push(['trackEvent', 'product', 'YZ1546', [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]]);
 ```
 
 Send us product view details. It will help us provide you with better analysis.
@@ -27,18 +26,18 @@ Send us product view details. It will help us provide you with better analysis.
 Parameter | Description
 --------- | -------------
 type  | The type of event to track('product' in this case)
-product_id | The unique identifier of the product you want us to track.
+pid | Product ID. The unique identifier of the product you want us to track.
 associated_ids  | The array of associated products
 
 ### Associated IDs
 
 Array of associated products
 
-Example: [{id: product_id, sku: sku, price: price}, ....]
+Example: [{pid: pid, sku: sku, price: price}, ....]
 
 Parameter | Description
 --------- | -------------
-product_id | The unique identifier of the product of the product you want us to track.
+pid | Product ID. The unique identifier of the product of the product you want us to track.
 sku | The sku of the item
 price | The price of product
 
@@ -49,18 +48,18 @@ price | The price of product
 > SDK js:
 
 ```javascript
-MWSDK.trackEvent('addtocart', product_id, sku, parent_product_id, quantity, bundle);
+MWSDK.trackEvent('addtocart', pid, sku, parent_pid, qty, bundle);
 
-Example MWSDK.trackEvent('addtocart', 'YZ1546A', 'YZ1546ALRG', 'YZ1546', 2, [{id: 'AB1546A', sku: 'AB1546ASML', price: 159}, {id: 'D1546A', sku: 'D1546AML', price: 200}]);
+Example MWSDK.trackEvent('addtocart', 'YZ1546A', 'YZ1546ALRG', 'YZ1546', 2, [{pid: 'AB1546A', sku: 'AB1546ASML', price: 159}, {pid: 'D1546A', sku: 'D1546AML', price: 200}]);
 ```
 
 > Script js:
 
 ```javascript
 window._mwapi = window._mwapi || [];
-_mwapi.push(['trackEvent', 'addtocart', product_id, sku, parent_product_id, quantity, bundle]);
+_mwapi.push(['trackEvent', 'addtocart', pid, sku, parent_pid, qty, bundle]);
 
-Example _mwapi.push(['trackEvent', 'addtocart', 'YZ1546A', 'YZ1546ALRG', 'YZ1546', 2, [{id: 'AB1546A', sku: 'AB1546ASML', price: 159}, {id: 'D1546A', sku: 'D1546AML', price: 200}]]);
+Example _mwapi.push(['trackEvent', 'addtocart', 'YZ1546A', 'YZ1546ALRG', 'YZ1546', 2, [{pid: 'AB1546A', sku: 'AB1546ASML', price: 159}, {pid: 'D1546A', sku: 'D1546AML', price: 200}]]);
 ```
 
 Send us add to cart details. It will help us provide you with better analysis.
@@ -70,21 +69,21 @@ Send us add to cart details. It will help us provide you with better analysis.
 Parameter | Description
 --------- | -------------
 type  | The type of event to track('addtocart' in this case)
-product_id | The unique identifier of the product of the product you want us to track.
-parent_product_id | The unique identifier of the parent product(incase of variant products) you want us to track.
+pid | Product ID. The unique identifier of the product of the product you want us to track.
+parent_pid | Parent Product ID. The unique identifier of the parent product(incase of variant products) you want us to track.
 sku | The sku of the item
-quantity | The quantity of items remaining in the stock
+qty | The quantity of items remaining in the stock
 bundle  | The array of items in bundle
 
 ### Bundle
 
 Array of individual products incase of bundle product
 
-Example: [{id: product_id, sku: sku, price: price}, ....]
+Example: [{pid: pid, sku: sku, price: price}, ....]
 
 Parameter | Description
 --------- | -------------
-product_id | The unique identifier of the product of the product you want us to track.
+pid | Product ID. The unique identifier of the product of the product you want us to track.
 sku | The sku of the item
 price | The price of product
 
@@ -94,18 +93,18 @@ price | The price of product
 > SDK js:
 
 ```javascript
-MWSDK.trackEvent('bag', 'mwdirect', items);
+MWSDK.trackEvent('bag', 'mwdirect', products);
 
-Example MWSDK.trackEvent('bag', 'mwdirect', [{_id: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parentId: 'YZ1546', bundle: [{id: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}]);
+Example MWSDK.trackEvent('bag', 'mwdirect', [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}]);
 ```
 
 > Script js:
 
 ```javascript
 window._mwapi = window._mwapi || [];
-_mwapi.push(['trackEvent', 'bag', 'mwdirect', items]);
+_mwapi.push(['trackEvent', 'bag', 'mwdirect', products]);
 
-Example _mwapi.push(['trackEvent', 'bag', 'mwdirect', [{_id: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parentId: 'YZ1546', bundle: [{id: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}]]);
+Example _mwapi.push(['trackEvent', 'bag', 'mwdirect', [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}]]);
 ```
 
 Send us cart details. It will help us provide you with better analysis.
@@ -115,21 +114,21 @@ Send us cart details. It will help us provide you with better analysis.
 Parameter | Description
 --------- | -------------
 type  | The type of event to track('bag' in this case)
-items | The products inside cart which you want us to track.
+products | The products inside cart which you want us to track.
 
 ### Items
 
 Array of products in the cart
 
-Example: [{_id: product_id, sku: sku, qty: quantity, price: price, parentId: parent_product_id, bundle: bundle}, ....]
+Example: [{pid: pid, sku: sku, qty: qty, price: price, parent_pid: parent_pid, bundle: bundle}, ....]
 
 Parameter | Description
 --------- | -------------
-product_id | The unique identifier of the product of the product you want us to track.
+pid | Product ID The unique identifier of the product of the product you want us to track.
 sku | The sku of the item
-quantity | The quantity of items
+qty | The quantity of items
 price | The price of product
-parent_product_id | The unique identifier of the parent product(incase of variant products) you want us to track.
+parent_pid | Parent Product ID. The unique identifier of the parent product(incase of variant products) you want us to track.
 bundle  | The array of items in bundle
 
 
@@ -138,18 +137,18 @@ bundle  | The array of items in bundle
 > SDK js:
 
 ```javascript
-MWSDK.trackEvent('buy', 'mwdirect', items);
+MWSDK.trackEvent('buy', 'mwdirect', products);
 
-Example MWSDK.trackEvent('buy', 'mwdirect', [{_id: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parentId: 'YZ1546', bundle: [{id: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}]);
+Example MWSDK.trackEvent('buy', 'mwdirect', [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}]);
 ```
 
 > Script js:
 
 ```javascript
 window._mwapi = window._mwapi || [];
-_mwapi.push(['trackEvent', 'buy', 'mwdirect', items]);
+_mwapi.push(['trackEvent', 'buy', 'mwdirect', products]);
 
-Example _mwapi.push(['trackEvent', 'bag', 'mwdirect', [{_id: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parentId: 'YZ1546', bundle: [{id: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}]]);
+Example _mwapi.push(['trackEvent', 'bag', 'mwdirect', [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}]]);
 ```
 
 Send us purchase details. It will help us provide you with better analysis.
@@ -159,21 +158,21 @@ Send us purchase details. It will help us provide you with better analysis.
 Parameter | Description
 --------- | -------------
 type  | The type of event to track('buy' in this case)
-items | The list of ordered products you want us to track.
+products | The list of ordered products you want us to track.
 
 ### Items
 
 Array of products bought
 
-Example: [{_id: product_id, sku: sku, qty: quantity, price: price, parentId: parent_product_id, bundle: bundle}, ....]
+Example: [{pid: pid, sku: sku, qty: qty, price: price, parent_pid: parent_pid, bundle: bundle}, ....]
 
 Parameter | Description
 --------- | -------------
-product_id | The unique identifier of the product of the product you want us to track.
+pid | Product ID. The unique identifier of the product of the product you want us to track.
 sku | The sku of the item
-quantity | The quantity of items
+qty | The quantity of items
 price | The price of product
-parent_product_id | The unique identifier of the parent product(incase of variant products) you want us to track.
+parent_pid | Parent Product ID. The unique identifier of the parent product(incase of variant products) you want us to track.
 bundle  | The array of items in bundle
 
 ## Set Product Inventory
@@ -182,19 +181,25 @@ bundle  | The array of items in bundle
 > SDK js:
 
 ```javascript
-MWSDK.inventory(product_id, sku , quantity);
+MWSDK.inventory(pid, sku , quantity);
+
+Example MWSDK.inventory('RKG', 'RKG1' , 45);
 ```
 
 > Script js:
 
 ```javascript
 window._mwapi = window._mwapi || [];
-_mwapi.push(['inventory', product_id , sku , quantity ]);
+_mwapi.push(['inventory', pid , sku , quantity ]);
+
+Example _mwapi.push(['RKG', 'RKG1' , 45]);
 ```
 > REST:
 
 ```shell
-https://api.minewhat.com/v1/updateinv/?pid=product_id&sku=sku&qty=quantity
+https://api.minewhat.com/v1/updateinv/?pid=pid&sku=sku&qty=qty
+
+Example https://api.minewhat.com/v1/updateinv/?pid=RKG&sku=RKG1&qty=45
 ```
 
 Send us inventory details for all the products. It will help us provide you with better analysis on what to keep on in your inventory so that you never run out of stock or pile it up.
@@ -203,9 +208,9 @@ Send us inventory details for all the products. It will help us provide you with
 
 Parameter | Description
 --------- | -------------
-product_id | The unique identifier of the product of the product you want us to track.
+pid | Product ID. The unique identifier of the product of the product you want us to track.
 sku | The sku of the item
-quantity | The quantity of items remaining in the stock
+qty | The quantity of items remaining in the stock
 
 
 ## Set Customer Email
