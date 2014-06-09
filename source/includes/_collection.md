@@ -7,7 +7,7 @@
 ```javascript
 MWSDK.trackEvent('product', pid, associated_ids);
 
-Example MWSDK.trackEvent('product', 'YZ1546', [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]);
+Example MWSDK.trackEvent('product', 'YZ1546', ['YZ1546A']);
 ```
 
 > Script js:
@@ -16,7 +16,7 @@ Example MWSDK.trackEvent('product', 'YZ1546', [{pid: 'YZ1546A', sku: 'YZ1546ALRG
 window._mwapi = window._mwapi || [];
 _mwapi.push(['trackEvent', 'product', pid, associated_ids]);
 
-Example _mwapi.push(['trackEvent', 'product', 'YZ1546', [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]]);
+Example _mwapi.push(['trackEvent', 'product', 'YZ1546', ['YZ1546A']]);
 ```
 
 Send us product view details. It will help us provide you with better analysis.
@@ -27,20 +27,13 @@ Parameter | Description
 --------- | -------------
 type  | The type of event to track('product' in this case)
 pid | Product ID. The unique identifier of the product you want us to track.
-associated_ids  | The array of associated products
+associated_ids  | The array of associated product ids
 
 ### Associated IDs
 
 Array of associated products
 
-Example: [{pid: pid, sku: sku, price: price}, ....]
-
-Parameter | Description
---------- | -------------
-pid | Product ID. The unique identifier of the product of the product you want us to track.
-sku | The sku of the item
-price | The price of product
-
+Example: [pid1, pid2, ....]
 
 
 ## Track Add To Cart Event
