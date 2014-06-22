@@ -159,7 +159,7 @@ bundle  | The array of items in bundle
 ```javascript
 MWSDK.trackEvent('buy', {products: products, order: order});
 
-Example MWSDK.trackEvent('buy', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}], order: [{order_number: "ABDFGERSA123", email: "abc@gmail.com", created_at: "2016-05-12 12:00:12 5.5"}]});
+Example MWSDK.trackEvent('buy', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}], order: [{order_number: "ABDFGERSA123", email: "abc@gmail.com", created_at: "2016-05-12 12:00:12 -0400"}]});
 ```
 
 > Script js:
@@ -168,7 +168,7 @@ Example MWSDK.trackEvent('buy', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', 
 window._mwapi = window._mwapi || [];
 _mwapi.push(['trackEvent', 'buy', {products: products, order: order}]);
 
-Example _mwapi.push(['trackEvent', 'buy', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}], order: [{order_number: "ABDFGERSA123", email: "abc@gmail.com", created_at: "2016-05-12 12:00:12 5.5"}]}]);
+Example _mwapi.push(['trackEvent', 'buy', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}], order: [{order_number: "ABDFGERSA123", email: "abc@gmail.com", created_at: "2016-05-12 12:00:12 -0400"}]}]);
 ```
 
 Send us purchase details. It will help us provide you with better analysis.
@@ -200,7 +200,7 @@ Parameter | Description
 --------- | -------------
 order_number | The unique order number
 email | The email id of user who made the order
-created_at | The time of order in the format YYYY-MM-DD hh:mm:ss tz
+created_at | The time of order in the format YYYY-MM-DD HH:mm:ss ZZ
 
 ## Set Product Inventory
 
