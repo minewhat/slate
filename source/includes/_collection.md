@@ -159,7 +159,7 @@ bundle  | The array of items in bundle
 ```javascript
 MWSDK.trackEvent('buy', {products: products, order: order});
 
-Example MWSDK.trackEvent('buy', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}], order: [{order_number: "ABDFGERSA123", email: "abc@gmail.com", created_at: "2016-05-12 12:00:12 -0400"}]});
+Example MWSDK.trackEvent('buy', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}], order: {order_number: "ABDFGERSA123", email: "abc@gmail.com", created_at: "2016-05-12 12:00:12 -0400"}});
 ```
 
 > Script js:
@@ -168,7 +168,7 @@ Example MWSDK.trackEvent('buy', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', 
 window._mwapi = window._mwapi || [];
 _mwapi.push(['trackEvent', 'buy', {products: products, order: order}]);
 
-Example _mwapi.push(['trackEvent', 'buy', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}], order: [{order_number: "ABDFGERSA123", email: "abc@gmail.com", created_at: "2016-05-12 12:00:12 -0400"}]}]);
+Example _mwapi.push(['trackEvent', 'buy', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}], order: {order_number: "ABDFGERSA123", email: "abc@gmail.com", created_at: "2016-05-12 12:00:12 -0400"}}]);
 ```
 
 Send us purchase details. It will help us provide you with better analysis.
@@ -272,7 +272,7 @@ email_id |  Email Id of the signed in customer
 > SDK js:
 
 ```javascript
-MWSDK.orderStatus(email_id, order_id, order_status);
+MWSDK.orderStatus(email_id, order_number, order_status);
 
 Example MWSDK.orderStatus('abc@gmail.com', 'fgrds354jd', 0);
 ```
@@ -280,7 +280,7 @@ Example MWSDK.orderStatus('abc@gmail.com', 'fgrds354jd', 0);
 
 ```javascript
 window._mwapi = window._mwapi || [];
-_mwapi.push(['orderStatus', email_id, order_id, order_status ]);
+_mwapi.push(['orderStatus', email_id, order_number, order_status ]);
 
 Example _mwapi.push(['orderStatus', 'abc@gmail.com', 'fgrds354jd', 0]);
 ```
@@ -292,5 +292,5 @@ Users might be visiting your website to check the order status. We can guide whi
 Parameter | Description
 --------- | -------------
 email_id | Email Id of the signed in customer
-order_id | Order Id of the signed in customer
+order_number | Order number of the signed in customer
 order_status | Order Status of the Order Id, 0 - RECEIVED , 1 - SHIPPED , 2 - DELIVERED , 3 - RETURN , 4 - RETURN_ACCEPTED
