@@ -245,17 +245,17 @@ qty | The quantity of items remaining in the stock
 > SDK js:
 
 ```javascript
-MWSDK.setuser(email_id);
+MWSDK.trackUser(email_id, data);
 
-Example MWSDK.setuser('abc@gmail.com');
+Example MWSDK.trackUser('abc@gmail.com', {tags: ["premiumuser", "above60"]});
 ```
 > Script js:
 
 ```javascript
 window._mwapi = window._mwapi || [];
-_mwapi.push(['setUser', email_id]);
+_mwapi.push(['trackUser', email_id, data]);
 
-Example _mwapi.push(['setUser', 'abc@gmail.com']);
+Example _mwapi.push(['trackUser', 'abc@gmail.com', {tags: ["premiumuser", "above60"]}]);
 ```
 
 Users can clear cache and cookies from browser. Help us associate logged in users with their multiple session online by sending user email when he signs in.
@@ -265,6 +265,7 @@ Users can clear cache and cookies from browser. Help us associate logged in user
 Parameter | Description
 --------- | -------------
 email_id |  Email Id of the signed in customer
+tags  | Array of user tags you want us to track
 
 
 ## Set Order Status
