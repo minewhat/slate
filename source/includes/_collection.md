@@ -7,7 +7,7 @@
 ```javascript
 MWSDK.trackUser(email_id, data);
 
-Example MWSDK.trackUser('abc@gmail.com', {tags: ["premiumuser", "above60"]});
+Example MWSDK.trackUser('abc@gmail.com', {tags: ['premiumuser', 'above60']});
 ```
 > Script js:
 
@@ -15,7 +15,7 @@ Example MWSDK.trackUser('abc@gmail.com', {tags: ["premiumuser", "above60"]});
 window._mwapi = window._mwapi || [];
 _mwapi.push(['trackUser', email_id, data]);
 
-Example _mwapi.push(['trackUser', 'abc@gmail.com', {tags: ["premiumuser", "above60"]}]);
+Example _mwapi.push(['trackUser', 'abc@gmail.com', {tags: ['premiumuser', 'above60']}]);
 ```
 
 Users can clear cache and cookies from browser. Help us associate logged in users with their multiple session online by sending user email when he signs in.
@@ -157,7 +157,7 @@ bundle  | The array of items in bundle
 ```javascript
 MWSDK.trackEvent('buy', {products: products, order: order});
 
-Example MWSDK.trackEvent('buy', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}], order: {order_number: "ABDFGERSA123", email: "abc@gmail.com", created_at: "2016-05-12 12:00:12 -0400"}});
+Example MWSDK.trackEvent('buy', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}], order: {order_number: 'ABDFGERSA123', payment: 'cod', email: 'abc@gmail.com', created_at: '2016-05-12 12:00:12 -0400'}});
 ```
 
 > Script js:
@@ -166,7 +166,7 @@ Example MWSDK.trackEvent('buy', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', 
 window._mwapi = window._mwapi || [];
 _mwapi.push(['trackEvent', 'buy', {products: products, order: order}]);
 
-Example _mwapi.push(['trackEvent', 'buy', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}], order: {order_number: "ABDFGERSA123", email: "abc@gmail.com", created_at: "2016-05-12 12:00:12 -0400"}}]);
+Example _mwapi.push(['trackEvent', 'buy', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}], order: {order_number: 'ABDFGERSA123', payment: 'cod', email: 'abc@gmail.com', created_at: '2016-05-12 12:00:12 -0400'}}]);
 ```
 
 Send us purchase details. It will help us provide you with better analysis.
@@ -197,6 +197,7 @@ bundle  | The array of items in bundle
 Parameter | Description
 --------- | -------------
 order_number | The unique order number
+payment | The Payment method used for purchase
 email | The email id of user who made the order
 created_at | The time of order in the format YYYY-MM-DD HH:mm:ss ZZ
 
