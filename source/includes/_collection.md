@@ -1,33 +1,31 @@
 # Collection
 
-
-## Track Product Quick View Event
+## Set Customer Email
 
 > SDK js:
 
 ```javascript
-MWSDK.trackEvent('quickview', {pid: pid, pLink: pLink});
+MWSDK.trackUser(email_id, data);
 
-Example MWSDK.trackEvent('quickview', {pid: 'YZ1546', pLink: 'www.yourstore.com/pid/12'});
+Example MWSDK.trackUser('abc@gmail.com', {tags: ["premiumuser", "above60"]});
 ```
-
 > Script js:
 
 ```javascript
 window._mwapi = window._mwapi || [];
-_mwapi.push(['trackEvent', 'quickview', {pid: pid, pLink: pLink}]);
+_mwapi.push(['trackUser', email_id, data]);
 
-Example _mwapi.push(['trackEvent', 'quickview', {pid: 'YZ1546', pLink: 'www.yourstore.com/pid/12'}]);
+Example _mwapi.push(['trackUser', 'abc@gmail.com', {tags: ["premiumuser", "above60"]}]);
 ```
 
-Send us product quick view details. It will help us provide you with better analysis.
+Users can clear cache and cookies from browser. Help us associate logged in users with their multiple session online by sending user email when he signs in.
 
 ### Parameters
 
 Parameter | Description
 --------- | -------------
-pid | Product ID. The unique identifier of the product you want us to track.
-pLink  | The product link
+email_id |  Email Id of the signed in customer
+tags  | Array of user tags you want us to track
 
 
 ## Track Product View Event
@@ -55,7 +53,7 @@ Send us product view details. It will help us provide you with better analysis.
 
 Parameter | Description
 --------- | -------------
-pid | Product ID. The unique identifier of the product you want us to track.
+pid | Product ID. The unique identifier of the product you want us to track
 associated_ids  | The array of associated product ids
 
 ### Associated IDs
@@ -90,8 +88,8 @@ Send us add to cart details. It will help us provide you with better analysis.
 
 Parameter | Description
 --------- | -------------
-pid | Product ID. The unique identifier of the product of the product you want us to track.
-parent_pid | Parent Product ID. The unique identifier of the parent product(incase of variant products) you want us to track.
+pid | Product ID. The unique identifier of the product of the product you want us to track
+parent_pid | Parent Product ID. The unique identifier of the parent product(incase of variant products) you want us to track
 sku | The sku of the item
 qty | The quantity of items remaining in the stock
 bundle  | The array of items in bundle
@@ -104,7 +102,7 @@ Example: [{pid: pid, sku: sku, price: price}, ....]
 
 Parameter | Description
 --------- | -------------
-pid | Product ID. The unique identifier of the product of the product you want us to track.
+pid | Product ID. The unique identifier of the product of the product you want us to track
 sku | The sku of the item
 price | The price of product
 
@@ -134,7 +132,7 @@ Send us cart details. It will help us provide you with better analysis.
 
 Parameter | Description
 --------- | -------------
-products | The products inside cart which you want us to track.
+products | The products inside cart which you want us to track
 
 ### Items
 
@@ -144,11 +142,11 @@ Example: [{pid: pid, sku: sku, qty: qty, price: price, parent_pid: parent_pid, b
 
 Parameter | Description
 --------- | -------------
-pid | Product ID The unique identifier of the product of the product you want us to track.
+pid | Product ID The unique identifier of the product of the product you want us to track
 sku | The sku of the item
 qty | The quantity of items
 price | The price of product
-parent_pid | Parent Product ID. The unique identifier of the parent product(incase of variant products) you want us to track.
+parent_pid | Parent Product ID. The unique identifier of the parent product(incase of variant products) you want us to track
 bundle  | The array of items in bundle
 
 
@@ -177,7 +175,7 @@ Send us purchase details. It will help us provide you with better analysis.
 
 Parameter | Description
 --------- | -------------
-products | The list of ordered products you want us to track.
+products | The list of ordered products you want us to track
 order | The order details
 
 ### Products
@@ -188,11 +186,11 @@ Example: [{pid: pid, sku: sku, qty: qty, price: price, parent_pid: parent_pid, b
 
 Parameter | Description
 --------- | -------------
-pid | Product ID. The unique identifier of the product of the product you want us to track.
+pid | Product ID. The unique identifier of the product of the product you want us to track
 sku | The sku of the item
 qty | The quantity of items
 price | The price of product
-parent_pid | Parent Product ID. The unique identifier of the parent product(incase of variant products) you want us to track.
+parent_pid | Parent Product ID. The unique identifier of the parent product(incase of variant products) you want us to track
 bundle  | The array of items in bundle
 
 ### Order
@@ -202,96 +200,39 @@ order_number | The unique order number
 email | The email id of user who made the order
 created_at | The time of order in the format YYYY-MM-DD HH:mm:ss ZZ
 
-## Set Product Inventory
 
+## Track Product Custom Event
 
 > SDK js:
 
 ```javascript
-MWSDK.inventory(pid, sku , quantity);
+MWSDK.trackEvent('custom', {pid: pid, metric: metric, attribute: attribute, url: url});
 
-Example MWSDK.inventory('RKG', 'RKG1' , 45);
+Example MWSDK.trackEvent('custom', {pid: 'YZ1546', metric: 'quickview', attribute: {collection: '50%SALE_PAGE'}, url: 'www.yourstore.com/pid/12'});
 ```
 
 > Script js:
 
 ```javascript
 window._mwapi = window._mwapi || [];
-_mwapi.push(['inventory', pid , sku , quantity ]);
+_mwapi.push(['trackEvent', 'custom', {pid: pid, metric: metric, attribute: attribute, url: url}]);
 
-Example _mwapi.push(['RKG', 'RKG1' , 45]);
-```
-> REST:
-
-```shell
-https://api.minewhat.com/v1/updateinv/?pid=pid&sku=sku&qty=qty
-
-Example https://api.minewhat.com/v1/updateinv/?pid=RKG&sku=RKG1&qty=45
+Example _mwapi.push(['trackEvent', 'custom', {pid: 'YZ1546', metric: 'quickview', attribute: {collection: '50%SALE_PAGE'}, url: 'www.yourstore.com/pid/12'}]);
 ```
 
-Send us inventory details for all the products. It will help us provide you with better analysis on what to keep on in your inventory so that you never run out of stock or pile it up.
+Send us custom events to track.
 
 ### Parameters
 
 Parameter | Description
 --------- | -------------
-pid | Product ID. The unique identifier of the product of the product you want us to track.
-sku | The sku of the item
-qty | The quantity of items remaining in the stock
+pid | Product ID. The unique identifier of the product you want us to track
+metric  | Custom metric you want us to track
+attribute | Custom attribute you want us to track
+url  | The product url
 
+### Attribute
 
-## Set Customer Email
+Object containing attribute and attribute value mapping.
 
-> SDK js:
-
-```javascript
-MWSDK.trackUser(email_id, data);
-
-Example MWSDK.trackUser('abc@gmail.com', {tags: ["premiumuser", "above60"]});
-```
-> Script js:
-
-```javascript
-window._mwapi = window._mwapi || [];
-_mwapi.push(['trackUser', email_id, data]);
-
-Example _mwapi.push(['trackUser', 'abc@gmail.com', {tags: ["premiumuser", "above60"]}]);
-```
-
-Users can clear cache and cookies from browser. Help us associate logged in users with their multiple session online by sending user email when he signs in.
-
-### Parameters
-
-Parameter | Description
---------- | -------------
-email_id |  Email Id of the signed in customer
-tags  | Array of user tags you want us to track
-
-
-## Set Order Status
-
-> SDK js:
-
-```javascript
-MWSDK.orderStatus(email_id, order_number, order_status);
-
-Example MWSDK.orderStatus('abc@gmail.com', 'fgrds354jd', 0);
-```
-> Script js:
-
-```javascript
-window._mwapi = window._mwapi || [];
-_mwapi.push(['orderStatus', email_id, order_number, order_status ]);
-
-Example _mwapi.push(['orderStatus', 'abc@gmail.com', 'fgrds354jd', 0]);
-```
-
-Users might be visiting your website to check the order status. We can guide while they are at it. Send us order status details when a user lands on your page.
-
-### Parameters
-
-Parameter | Description
---------- | -------------
-email_id | Email Id of the signed in customer
-order_number | Order number of the signed in customer
-order_status | Order Status of the Order Id, 0 - RECEIVED , 1 - SHIPPED , 2 - DELIVERED , 3 - RETURN , 4 - RETURN_ACCEPTED
+Example: {'collection': '50%SALE_PAGE'}
