@@ -107,6 +107,50 @@ sku | The sku of the item
 price | The price of product
 
 
+## Track Remove From Cart Event
+
+> SDK js:
+
+```javascript
+MWSDK.trackEvent('removecart', {pid: pid, sku: sku, parent_pid: parent_pid, qty: qty, bundle: bundle});
+
+Example MWSDK.trackEvent('removecart', {pid: 'YZ1546A', sku: 'YZ1546ALRG', parent_pid: 'YZ1546', qty: 2, bundle: [{pid: 'AB1546A', sku: 'AB1546ASML', price: 159}, {pid: 'D1546A', sku: 'D1546AML', price: 200}]});
+```
+
+> Script js:
+
+```javascript
+window._mwapi = window._mwapi || [];
+_mwapi.push(['trackEvent', 'removecart', {pid: pid, sku: sku, parent_pid: parent_pid, qty: qty, bundle: bundle}]);
+
+Example _mwapi.push(['trackEvent', 'removecart', {pid: 'YZ1546A', sku: 'YZ1546ALRG', parent_pid: 'YZ1546', qty: 2, bundle: [{pid: 'AB1546A', sku: 'AB1546ASML', price: 159}, {pid: 'D1546A', sku: 'D1546AML', price: 200}]}]);
+```
+
+Send us remove from cart details. It will help us provide you with better analysis.
+
+### Parameters
+
+Parameter | Description
+--------- | -------------
+pid | Product ID. The unique identifier of the product of the product you want us to track
+parent_pid | Parent Product ID. The unique identifier of the parent product(incase of variant products) you want us to track
+sku | The sku of the item
+qty | The quantity of items remaining in the stock
+bundle  | The array of items in bundle
+
+### Bundle
+
+Array of individual products incase of bundle product
+
+Example: [{pid: pid, sku: sku, price: price}, ....]
+
+Parameter | Description
+--------- | -------------
+pid | Product ID. The unique identifier of the product of the product you want us to track
+sku | The sku of the item
+price | The price of product
+
+
 ## Track Cart Info
 
 > SDK js:
@@ -200,6 +244,109 @@ order_number | The unique order number
 payment | The Payment method used for purchase
 email | The email id of user who made the order
 created_at | The time of order in the format YYYY-MM-DD HH:mm:ss ZZ
+
+
+## Track Canceled Orders
+
+> SDK js:
+
+```javascript
+MWSDK.trackEvent('cancel', {products: products, order: order});
+
+Example MWSDK.trackEvent('cancel', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}], order: {order_number: 'ABDFGERSA123', payment: 'cod', email: 'abc@gmail.com'}});
+```
+
+> Script js:
+
+```javascript
+window._mwapi = window._mwapi || [];
+_mwapi.push(['trackEvent', 'cancel', {products: products, order: order}]);
+
+Example _mwapi.push(['trackEvent', 'cancel', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}], order: {order_number: 'ABDFGERSA123', payment: 'cod', email: 'abc@gmail.com'}}]);
+```
+
+Send us order cancel details. It will help us provide you with better analysis.
+
+### Parameters
+
+Parameter | Description
+--------- | -------------
+products | The list of products in the canceled order
+order | The order details
+
+### Products
+
+Array of products canceled
+
+Example: [{pid: pid, sku: sku, qty: qty, price: price, parent_pid: parent_pid, bundle: bundle}, ....]
+
+Parameter | Description
+--------- | -------------
+pid | Product ID. The unique identifier of the product of the product you want us to track
+sku | The sku of the item
+qty | The quantity of items
+price | The price of product
+parent_pid | Parent Product ID. The unique identifier of the parent product(incase of variant products) you want us to track
+bundle  | The array of items in bundle
+
+### Order
+Parameter | Description
+--------- | -------------
+order_number | The unique order number
+payment | The Payment method used for purchase
+email | The email id of user who requested order cancel
+
+
+## Track Returns
+
+> SDK js:
+
+```javascript
+MWSDK.trackEvent('return', {products: products, order: order});
+
+Example MWSDK.trackEvent('return', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}], order: {order_number: 'ABDFGERSA123', payment: 'cod', email: 'abc@gmail.com'}});
+```
+
+> Script js:
+
+```javascript
+window._mwapi = window._mwapi || [];
+_mwapi.push(['trackEvent', 'return', {products: products, order: order}]);
+
+Example _mwapi.push(['trackEvent', 'return', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}], order: {order_number: 'ABDFGERSA123', payment: 'cod', email: 'abc@gmail.com'}}]);
+```
+
+Send us product return details. It will help us provide you with better analysis.
+
+### Parameters
+
+Parameter | Description
+--------- | -------------
+products | The list of products returned
+order | The order details
+
+### Products
+
+Array of products returned
+
+Example: [{pid: pid, sku: sku, qty: qty, price: price, parent_pid: parent_pid, bundle: bundle}, ....]
+
+Parameter | Description
+--------- | -------------
+pid | Product ID. The unique identifier of the product of the product you want us to track
+sku | The sku of the item
+qty | The quantity of items
+price | The price of product
+parent_pid | Parent Product ID. The unique identifier of the parent product(incase of variant products) you want us to track
+bundle  | The array of items in bundle
+
+### Order
+Parameter | Description
+--------- | -------------
+order_number | The unique order number
+payment | The Payment method used for purchase
+email | The email id of user who made the return
+
 
 
 ## Track Product Custom Event
