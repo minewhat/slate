@@ -98,7 +98,7 @@ bundle  | The array of items in bundle
 
 Array of individual products incase of bundle product
 
-Example: [{pid: pid, sku: sku, price: price}, ....]
+Example: [{pid: pid, sku: sku, price: price}, .....]
 
 Parameter | Description
 --------- | -------------
