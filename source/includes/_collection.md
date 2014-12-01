@@ -201,7 +201,7 @@ bundle  | The array of items in bundle
 ```javascript
 MWSDK.trackEvent('buy', {products: products, order: order});
 
-Example MWSDK.trackEvent('buy', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}], order: {order_number: 'ABDFGERSA123', payment: 'cod', email: 'abc@gmail.com', created_at: '2016-05-12 12:00:12 -0400'}});
+Example MWSDK.trackEvent('buy', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}], order: {order_number: 'ABDFGERSA123', revenue: '700', discount: '18', payment: 'cod', email: 'abc@gmail.com', created_at: '2016-05-12 12:00:12 -0400'}});
 ```
 
 > Script js:
@@ -210,7 +210,7 @@ Example MWSDK.trackEvent('buy', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', 
 window._mwapi = window._mwapi || [];
 _mwapi.push(['trackEvent', 'buy', {products: products, order: order}]);
 
-Example _mwapi.push(['trackEvent', 'buy', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}], order: {order_number: 'ABDFGERSA123', payment: 'cod', email: 'abc@gmail.com', created_at: '2016-05-12 12:00:12 -0400'}}]);
+Example _mwapi.push(['trackEvent', 'buy', {products: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', qty: 2, price: 359, parent_pid: 'YZ1546', bundle: [{pid: 'YZ1546A', sku: 'YZ1546ALRG', price: 359}]}], order: {order_number: 'ABDFGERSA123', revenue: '700', discount: '18', payment: 'cod', email: 'abc@gmail.com', created_at: '2016-05-12 12:00:12 -0400'}}]);
 ```
 
 Send us purchase details. It will help us provide you with better analysis.
@@ -241,6 +241,8 @@ bundle  | The array of items in bundle
 Parameter | Description
 --------- | -------------
 order_number | The unique order number
+revenue | Total order revenue
+discount  | Total discount applied on order
 payment | The Payment method used for purchase
 email | The email id of user who made the order
 created_at | The time of order in the format YYYY-MM-DD HH:mm:ss ZZ
