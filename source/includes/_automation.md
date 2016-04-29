@@ -60,7 +60,7 @@ You can get all the items of the insights so that you can connect back to any au
 Parameter | Description
 --------- | -------------
 id        | Unique identifier of the insight (obtained with insight list api)
-limit     | Max. entries in the response[maximum: 250, default: 50](optional)
+limit     | Max. entries in the response (maximum: 250, default: 50)
 domain    | domain key
 
 ### Response
