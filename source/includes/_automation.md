@@ -22,7 +22,7 @@ You can get all the insights you have created or system created with this API.
 Parameter | Description
 --------- | -------------
 domain    | domain key
-metric    | views/purchases/revenue/avgtimespent/conversionrate(optional)
+metric    | views/purchases/revenue(optional)
 order     | topk/leastk(optional)
 
 
@@ -60,6 +60,7 @@ You can get all the items of the insights so that you can connect back to any au
 Parameter | Description
 --------- | -------------
 id        | Unique identifier of the insight (obtained with insight list api)
+limit     | Max. entries in the response[maximum: 250, default: 50](optional)
 domain    | domain key
 
 ### Response
