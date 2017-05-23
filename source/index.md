@@ -17,7 +17,7 @@ search: true
 
 ##MineWhat’s API
 
-The MineWhat API is the interface that a developer can use to send or recieve and data from our system. We make periodical updates to the API. See the changelog for more details.
+The MineWhat API is the interface that a developer can use to send or receive and data from our system. We make periodical updates to the API. See the changelog for more details.
  
 ##Access
 
